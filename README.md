@@ -152,3 +152,9 @@ func retry(_ request: URLRequest, for session: URLSession, dueTo error: Error?) 
   }
 }
 ```
+
+# FocusLogger
+You can set a logger that will be prints the data in console log. You can choose between three debug levels:
+  - `none` -> no logs will be printed
+  - `debug` -> all logs(url, methods, body, header, response, status code, errors) will be printed
+  - `release` -> only url, status code and errors will be printed
