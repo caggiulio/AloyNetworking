@@ -1,0 +1,16 @@
+PODS:
+  - AloyNetworking (1.0.0)
+
+DEPENDENCIES:
+  - AloyNetworking (from `../`)
+
+EXTERNAL SOURCES:
+  AloyNetworking:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  AloyNetworking: 98524bc2aed60b85137465213698a6a91b29eeee
+
+PODFILE CHECKSUM: f47b70b8ebc0353ad33769b7e481d33d27240de2
+
+COCOAPODS: 1.11.2

@@ -1,0 +1,6 @@
+framework module AloyNetworking {
+  umbrella header "AloyNetworking-umbrella.h"
+
+  export *
+  module * { export * }
+}
