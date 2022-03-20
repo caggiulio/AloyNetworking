@@ -95,7 +95,7 @@ try await networking.send(request: request)
 The `AloyInterceptorProtocol` is used to adapt URL request and to define retry mechanism of failed requests. The protocol must to implement the `adapt` method and `retry` method and it's optional.
 
 ## Adapt
-The `adapt` method is used to inspects and adapts the specified `URLRequest` in some manner and return the request. This is an example od use it: 
+The `adapt` method is used to inspects and adapts the specified `URLRequest` in some manner and return the request. This is an example of use it: 
 
 ```swift
 func adapt(_ urlRequest: URLRequest) -> URLRequest {
@@ -106,7 +106,7 @@ func adapt(_ urlRequest: URLRequest) -> URLRequest {
 ```
 
 ## Retry
-This func must be used to execute code before retry a failed request. in Combine version, after the code, you must return a `Future` with `RetryResult`. In the normal version instead, tou must call a closure with `RetryResult`. Here are the examples: 
+This func must be used to execute code before retry a failed request. In Combine version, after the code, you must return a `Future` with `RetryResult`. In the normal version you must call a closure with `RetryResult`. In `async-await` version instead, you must to return the `RetryResult` in a `do-catch` block. Here are the examples: 
 
 ```swift
 // Combine version
