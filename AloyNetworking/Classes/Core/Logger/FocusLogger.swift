@@ -19,55 +19,89 @@ class FocusLogger {
   func logRequest(_ request: URLRequest) {
     guard logLevel != .none else { return }
 
-    print("\n⬆️ ----- START REQUEST ----- ⬆️")
-    if let url = request.url {
-      print("    -- Url: \(url)")
-    }
-    if let method = request.httpMethod {
-      print("    -- Method: \(method)")
-    }
-    if let body = request.httpBody, let stringBody = String(data: body, encoding: .utf8) {
-      print("    -- Body : \(stringBody)")
-    }
-    if let headers = request.allHTTPHeaderFields, headers.count > 0 {
-      print("    -- Headers")
-      for (key, value) in headers {
-        print("        -- \(key): \(value)")
+    if logLevel == .debug {
+      print("\n⬆️ ----- START REQUEST ----- ⬆️")
+      if let url = request.url {
+        print("    -- Url: \(url)")
       }
+      if let method = request.httpMethod {
+        print("    -- Method: \(method)")
+      }
+      if let body = request.httpBody, let stringBody = String(data: body, encoding: .utf8) {
+        print("    -- Body : \(stringBody)")
+      }
+      if let headers = request.allHTTPHeaderFields, headers.count > 0 {
+        print("    -- Headers")
+        for (key, value) in headers {
+          print("        -- \(key): \(value)")
+        }
+      }
+      print("⬆️ ----- END REQUEST ----- ⬆️")
+    } else if logLevel == .release {
+      print("\n⬆️ ----- START REQUEST ----- ⬆️")
+      if let url = request.url {
+        print("    -- Url: \(url)")
+      }
+      if let method = request.httpMethod {
+        print("    -- Method: \(method)")
+      }
+      print("⬆️ ----- END REQUEST ----- ⬆️")
     }
-    print("⬆️ ----- END REQUEST ----- ⬆️")
   }
 
   func logResponse(_ response: URLResponse?, data: Data?, error: Error? = nil) {
     guard logLevel != .none else { return }
 
-    print("\n⬇️ ----- START RESPONSE ----- ⬇️")
-    if let response = response as? HTTPURLResponse {
-      print("    -- Url: \(response.url?.absoluteString ?? "NO URL")")
-
-      let statusCode = response.statusCode
-      if statusCode >= 200, statusCode < 300 {
-        print("    -- Status Code: ✅ \(statusCode)")
+    if logLevel == .debug {
+      print("\n⬇️ ----- START RESPONSE ----- ⬇️")
+      if let response = response as? HTTPURLResponse {
+        print("    -- Url: \(response.url?.absoluteString ?? "NO URL")")
+        
+        let statusCode = response.statusCode
+        if statusCode >= 200, statusCode < 300 {
+          print("    -- Status Code: ✅ \(statusCode)")
+        } else {
+          print("    -- Status Code: ❌ \(statusCode)")
+        }
       } else {
-        print("    -- Status Code: ❌ \(statusCode)")
+        print("    -- Response: NO RESPONSE")
       }
-    } else {
-      print("    -- Response: NO RESPONSE")
-    }
-    if let data = data {
-      if let stringBody = String(data: data, encoding: .utf8) {
-        print("    -- Body : \(stringBody)")
+      if let data = data {
+        if let stringBody = String(data: data, encoding: .utf8) {
+          print("    -- Body : \(stringBody)")
+        } else {
+          print("    -- Body : NO HTTP BODY")
+        }
       } else {
-        print("    -- Body : NO HTTP BODY")
+        print("    -- data: NO DATA")
       }
-    } else {
-      print("    -- data: NO DATA")
+      if let error = error {
+        print("    -- Error: 🚨 \(error.localizedDescription)")
+      } else {
+        print("    -- Error: 👌 NO ERROR")
+      }
+      print("⬇️ ----- END RESPONSE ----- ⬇️")
+    } else if logLevel == .release {
+      print("\n⬇️ ----- START RESPONSE ----- ⬇️")
+      if let response = response as? HTTPURLResponse {
+        print("    -- Url: \(response.url?.absoluteString ?? "NO URL")")
+        
+        let statusCode = response.statusCode
+        if statusCode >= 200, statusCode < 300 {
+          print("    -- Status Code: ✅ \(statusCode)")
+        } else {
+          print("    -- Status Code: ❌ \(statusCode)")
+        }
+      } else {
+        print("    -- Response: NO RESPONSE")
+      }
+      
+      if let error = error {
+        print("    -- Error: 🚨 \(error.localizedDescription)")
+      } else {
+        print("    -- Error: 👌 NO ERROR")
+      }
+      print("⬇️ ----- END RESPONSE ----- ⬇️")
     }
-    if let error = error {
-      print("    -- Error: 🚨 \(error.localizedDescription)")
-    } else {
-      print("    -- Error: 👌 NO ERROR")
-    }
-    print("⬇️ ----- END RESPONSE ----- ⬇️")
   }
 }
