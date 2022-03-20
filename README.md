@@ -22,10 +22,14 @@ private let webService: AloyNetworking = {
   return webService
 }()
 
-let path = ("/path", [CustomURLQueryItems()])
-let request = AloyNetworkingRequest(method: .get, path: path)
+...
 
-webService.send(request: request)
+func getCustomCodable() async throws -> CustomCodable {
+  let path = ("/path", [CustomURLQueryItems()])
+  let request = AloyNetworkingRequest(method: .get, path: path)
+
+  return try await webService.send(request: request)
+}
 ```
 
 The library works in three modes:
