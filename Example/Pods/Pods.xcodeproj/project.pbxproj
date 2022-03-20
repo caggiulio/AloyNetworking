@@ -7,24 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		05B2C5AFC5AECFDCFDD413EE5A9D71B1 /* AloyNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A5F5C6BAFB51F78B1E456CC29927B5 /* AloyNetworking.swift */; };
+		002D96D3D7199B0CC6B061A56D0192B0 /* FocusLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393FB27E3B2E4F27A0A4458E5E122904 /* FocusLogger.swift */; };
+		1914ED49EF392469D8A86BCEB0ABFC07 /* AloyNetworkingRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F409A4A63F2A024FA455147F2C5506D1 /* AloyNetworkingRequest.swift */; };
 		1A51FFC3A9FC0DD6C531C09EAB0C9CF9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
-		1F5F9AA9CCCD1631A2911BE8976E5EEE /* FocusLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67F0BA7595CD121E4AF4B3E7E870D58 /* FocusLogger.swift */; };
 		2A7CE6A509D1906A3798ECE9436A9977 /* Pods-AloyNetworking_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D37FD19009643EBF4B90DBE9E2DCF74 /* Pods-AloyNetworking_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4288645AB2F4CB8CCEFC9C3DCDDF3A41 /* AloyNetworkingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8169203886F97767CECF353F1FDA4D54 /* AloyNetworkingProtocol.swift */; };
+		3662D9F45D56E61696DDDD498EC497F6 /* AloyNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A0F070B7362B96071CB58446357A16 /* AloyNetworking.swift */; };
+		3789F2B0AA6E0CC1E1DAF9365AE24DB2 /* AloyNetworkingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470425E0F9A1DC8D9A91DB374C6ED2F2 /* AloyNetworkingError.swift */; };
 		43DA968DA3FD35FA274F6E2059EECC7A /* Pods-AloyNetworking_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 95EAA390B192EE861D8B854A70AAB0CB /* Pods-AloyNetworking_Tests-dummy.m */; };
 		4F8B049CC6A62FAD8D68232B7ED0791F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
-		574DBCA58794A2EEDEBCF03255561119 /* Encodable+Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09527B208822AF75DABCC5BC2B0C5242 /* Encodable+Dictionary.swift */; };
-		69544179FDFAFB3A30AAF94723ED5C7E /* AloyNetworkingMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F42DA6BBDF769E1FDB8FBED29B986C9 /* AloyNetworkingMedia.swift */; };
+		60FFD68BE004108D656FE9988FCD9BC0 /* FocusLoggerLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E198262993733D53F7FFAD00A9CB858 /* FocusLoggerLevel.swift */; };
 		6F26BE06C37F223EBEB5A770CA35570C /* AloyNetworking-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 34303C8080BF1A9EFA5F38B06B62A09C /* AloyNetworking-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7906780432319A9BFE83FC4B82CF7A30 /* AloyInterceptorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6527675F5613494CF0FC64C10CA7F2B4 /* AloyInterceptorProtocol.swift */; };
 		7CB8174A38C44900A42B03797BA9940F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
-		9A8737811D278BB66A550D3F048EBCB4 /* AloyNetworkingRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98ABA6473003862865D4DBA341C68A67 /* AloyNetworkingRequest.swift */; };
-		D23D4B318493736F14B847E21974FE18 /* AloyInterceptorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5460438307CFE4FD751F45C34D1BCD3 /* AloyInterceptorProtocol.swift */; };
-		D356DC750D8E3077B8A9DDB93243027B /* AloyNetworking-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DC9033E5A2637A49D06D839F572DF1B4 /* AloyNetworking-dummy.m */; };
-		E84FC0D796F0214FCF1E3E7FF1B07FA2 /* AloyNetworkingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1E6978196B3C01EABD66906803B090 /* AloyNetworkingError.swift */; };
+		C3106594ABAF7173E29747834D35C453 /* Encodable+Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09527B208822AF75DABCC5BC2B0C5242 /* Encodable+Dictionary.swift */; };
+		C62D14B2FA13B9B67DCEC858FDA370FD /* AloyNetworkingMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E1ECBA334AE68FBC5BAA606ED85988 /* AloyNetworkingMedia.swift */; };
+		CD8BEA0A6BF41C1C528D1993EB773259 /* AloyNetworkingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6472ADFA7A36876D65E052DF4F1B568 /* AloyNetworkingProtocol.swift */; };
+		DC22EE1C9EEBC3E2F3C3505DB36C22F7 /* AloyNetworking-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DC9033E5A2637A49D06D839F572DF1B4 /* AloyNetworking-dummy.m */; };
 		E9ACF480578E6E906F4DBC9ED643DB51 /* Pods-AloyNetworking_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 11CEFEAAC798459795F79F0FEB09DC75 /* Pods-AloyNetworking_Example-dummy.m */; };
 		F2E135E61AA808B10D595E3B5205C9B2 /* Pods-AloyNetworking_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B774809C631DCBC267FF938A7C0311E9 /* Pods-AloyNetworking_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FB09B918D53B50C8C86DA9378BF005D3 /* FocusLoggerLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDC3C5A11D9E577C726E95B6792FB93 /* FocusLoggerLevel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,45 +46,45 @@
 
 /* Begin PBXFileReference section */
 		09527B208822AF75DABCC5BC2B0C5242 /* Encodable+Dictionary.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Encodable+Dictionary.swift"; sourceTree = "<group>"; };
-		0F42DA6BBDF769E1FDB8FBED29B986C9 /* AloyNetworkingMedia.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AloyNetworkingMedia.swift; sourceTree = "<group>"; };
 		11CEFEAAC798459795F79F0FEB09DC75 /* Pods-AloyNetworking_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-AloyNetworking_Example-dummy.m"; sourceTree = "<group>"; };
 		1466AC895A6F3B2AF6971775BFD67178 /* Pods-AloyNetworking_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AloyNetworking_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		17A5F5C6BAFB51F78B1E456CC29927B5 /* AloyNetworking.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AloyNetworking.swift; sourceTree = "<group>"; };
-		1D1E6978196B3C01EABD66906803B090 /* AloyNetworkingError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AloyNetworkingError.swift; sourceTree = "<group>"; };
 		22D1783733D12C01E1453B4EED8DF60F /* Pods-AloyNetworking_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-AloyNetworking_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		2E8B27D09CC0A5A23764DCA8E28F7D33 /* Pods-AloyNetworking_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-AloyNetworking_Tests-Info.plist"; sourceTree = "<group>"; };
 		30C0438117C2DC4086921AD2CE212D18 /* Pods-AloyNetworking_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-AloyNetworking_Tests.modulemap"; sourceTree = "<group>"; };
 		34303C8080BF1A9EFA5F38B06B62A09C /* AloyNetworking-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AloyNetworking-umbrella.h"; sourceTree = "<group>"; };
+		393FB27E3B2E4F27A0A4458E5E122904 /* FocusLogger.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FocusLogger.swift; sourceTree = "<group>"; };
 		39B1944138A3012DCC13C13191CFADB3 /* Pods-AloyNetworking_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AloyNetworking_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		42D249E2898B495530EB13CE3A50787B /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		4EDC3C5A11D9E577C726E95B6792FB93 /* FocusLoggerLevel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FocusLoggerLevel.swift; sourceTree = "<group>"; };
-		5924190AFFEE42D87D1D657E2E5185B9 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		42D249E2898B495530EB13CE3A50787B /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		470425E0F9A1DC8D9A91DB374C6ED2F2 /* AloyNetworkingError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AloyNetworkingError.swift; sourceTree = "<group>"; };
+		4E198262993733D53F7FFAD00A9CB858 /* FocusLoggerLevel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FocusLoggerLevel.swift; sourceTree = "<group>"; };
+		5924190AFFEE42D87D1D657E2E5185B9 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
 		5D37FD19009643EBF4B90DBE9E2DCF74 /* Pods-AloyNetworking_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-AloyNetworking_Tests-umbrella.h"; sourceTree = "<group>"; };
 		62DB1FB077E342E31644D8FD48DECE87 /* AloyNetworking-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AloyNetworking-prefix.pch"; sourceTree = "<group>"; };
+		6527675F5613494CF0FC64C10CA7F2B4 /* AloyInterceptorProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AloyInterceptorProtocol.swift; sourceTree = "<group>"; };
 		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		76A0F070B7362B96071CB58446357A16 /* AloyNetworking.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AloyNetworking.swift; sourceTree = "<group>"; };
 		794552924CBBEAB1F2CB630A4809C64A /* Pods-AloyNetworking_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-AloyNetworking_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		8169203886F97767CECF353F1FDA4D54 /* AloyNetworkingProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AloyNetworkingProtocol.swift; sourceTree = "<group>"; };
 		860F9DABE71C5DB4E0772D0FE41855C8 /* Pods-AloyNetworking_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-AloyNetworking_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		875D47336C0AFCBCAE895D128049BCB8 /* Pods-AloyNetworking_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-AloyNetworking_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		92C03B5DAD7F67CA3FF8E766EEDA8074 /* AloyNetworking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AloyNetworking.debug.xcconfig; sourceTree = "<group>"; };
 		95EAA390B192EE861D8B854A70AAB0CB /* Pods-AloyNetworking_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-AloyNetworking_Tests-dummy.m"; sourceTree = "<group>"; };
-		98ABA6473003862865D4DBA341C68A67 /* AloyNetworkingRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AloyNetworkingRequest.swift; sourceTree = "<group>"; };
 		9D40048543759D00B76AAD6DD4791C9D /* Pods-AloyNetworking_Example */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-AloyNetworking_Example"; path = Pods_AloyNetworking_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		A5460438307CFE4FD751F45C34D1BCD3 /* AloyInterceptorProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AloyInterceptorProtocol.swift; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A62AF02D50C12FD25104CEC2C21A4FAF /* Pods-AloyNetworking_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AloyNetworking_Example-frameworks.sh"; sourceTree = "<group>"; };
 		A72740A3A2993418CA0B2A4BE92CFF81 /* AloyNetworking.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AloyNetworking.release.xcconfig; sourceTree = "<group>"; };
 		AD29A1FFDDEAC72B1290D87B7587525A /* Pods-AloyNetworking_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AloyNetworking_Example.release.xcconfig"; sourceTree = "<group>"; };
-		AEE071F7383BD921EB0A0F1129C70B53 /* AloyNetworking.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = AloyNetworking.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		AEE071F7383BD921EB0A0F1129C70B53 /* AloyNetworking.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = AloyNetworking.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		B774809C631DCBC267FF938A7C0311E9 /* Pods-AloyNetworking_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-AloyNetworking_Example-umbrella.h"; sourceTree = "<group>"; };
 		B9EA2754063EE21388C42BFA96B02B7D /* Pods-AloyNetworking_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-AloyNetworking_Example.modulemap"; sourceTree = "<group>"; };
 		BC04B6240DBB76BFECA186D765BA066F /* AloyNetworking */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = AloyNetworking; path = AloyNetworking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D379768B8D94948F369D480612C71699 /* Pods-AloyNetworking_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-AloyNetworking_Example-Info.plist"; sourceTree = "<group>"; };
-		D67F0BA7595CD121E4AF4B3E7E870D58 /* FocusLogger.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FocusLogger.swift; sourceTree = "<group>"; };
 		DAEBD6EA7F65711735E28B74B6B593D8 /* Pods-AloyNetworking_Tests */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-AloyNetworking_Tests"; path = Pods_AloyNetworking_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC9033E5A2637A49D06D839F572DF1B4 /* AloyNetworking-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "AloyNetworking-dummy.m"; sourceTree = "<group>"; };
 		EFBCE44FD4457EC221F1791FA6D88F04 /* Pods-AloyNetworking_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AloyNetworking_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		F1E1ECBA334AE68FBC5BAA606ED85988 /* AloyNetworkingMedia.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AloyNetworkingMedia.swift; sourceTree = "<group>"; };
 		F35E317A0BC0FF1A7A33835B7EB4C39F /* AloyNetworking.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = AloyNetworking.modulemap; sourceTree = "<group>"; };
+		F409A4A63F2A024FA455147F2C5506D1 /* AloyNetworkingRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AloyNetworkingRequest.swift; sourceTree = "<group>"; };
+		F6472ADFA7A36876D65E052DF4F1B568 /* AloyNetworkingProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AloyNetworkingProtocol.swift; sourceTree = "<group>"; };
 		FA57E75ECA9BD30AD7710E23660DD33C /* AloyNetworking-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "AloyNetworking-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -116,15 +116,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0CE35645CBF6D7EC64E9C3D5BD85D743 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				0F42DA6BBDF769E1FDB8FBED29B986C9 /* AloyNetworkingMedia.swift */,
-				98ABA6473003862865D4DBA341C68A67 /* AloyNetworkingRequest.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
 		49CFDF1D4068B74CB7823B5FB8F739FF /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -135,6 +126,15 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		542AD8830FEFB273AD304FAEF6A123E0 /* Interceptor */ = {
+			isa = PBXGroup;
+			children = (
+				6527675F5613494CF0FC64C10CA7F2B4 /* AloyInterceptorProtocol.swift */,
+			);
+			name = Interceptor;
+			path = Interceptor;
+			sourceTree = "<group>";
+		};
 		578452D2E740E91742655AC8F1636D1F /* iOS */ = {
 			isa = PBXGroup;
 			children = (
@@ -143,13 +143,13 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		5D215F237C89FC00A7D606B46F346B2A /* Base */ = {
+		8F289B02A791F2616D28A6ACE1677186 /* Error */ = {
 			isa = PBXGroup;
 			children = (
-				17A5F5C6BAFB51F78B1E456CC29927B5 /* AloyNetworking.swift */,
-				8169203886F97767CECF353F1FDA4D54 /* AloyNetworkingProtocol.swift */,
+				470425E0F9A1DC8D9A91DB374C6ED2F2 /* AloyNetworkingError.swift */,
 			);
-			path = Base;
+			name = Error;
+			path = Error;
 			sourceTree = "<group>";
 		};
 		9326D99F0EA4AECBAD8C63C91AEEA88D /* Support Files */ = {
@@ -176,6 +176,16 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
+		9BBB1A22318C5E060B393D86D322AF42 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				76A0F070B7362B96071CB58446357A16 /* AloyNetworking.swift */,
+				F6472ADFA7A36876D65E052DF4F1B568 /* AloyNetworkingProtocol.swift */,
+			);
+			name = Base;
+			path = Base;
+			sourceTree = "<group>";
+		};
 		A1521E09980FD3350BFFA52254917A4C /* Pod */ = {
 			isa = PBXGroup;
 			children = (
@@ -186,12 +196,14 @@
 			name = Pod;
 			sourceTree = "<group>";
 		};
-		A1A7AB9B863C80220A5B5238270C90F4 /* Interceptor */ = {
+		A1CB478052EC3261D74EFA8F6D929446 /* Logger */ = {
 			isa = PBXGroup;
 			children = (
-				A5460438307CFE4FD751F45C34D1BCD3 /* AloyInterceptorProtocol.swift */,
+				393FB27E3B2E4F27A0A4458E5E122904 /* FocusLogger.swift */,
+				4E198262993733D53F7FFAD00A9CB858 /* FocusLoggerLevel.swift */,
 			);
-			path = Interceptor;
+			name = Logger;
+			path = Logger;
 			sourceTree = "<group>";
 		};
 		B1E89E8EDCD2A7578212D1D583F122BB /* Development Pods */ = {
@@ -238,11 +250,11 @@
 		BB77773B46D319016F078596CC74908F /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				5D215F237C89FC00A7D606B46F346B2A /* Base */,
-				F7D9C7ADC47D974E1392E4ED2CAD2DFB /* Error */,
-				A1A7AB9B863C80220A5B5238270C90F4 /* Interceptor */,
-				F8233D414993BAE52F868D545AC5583B /* Logger */,
-				0CE35645CBF6D7EC64E9C3D5BD85D743 /* Models */,
+				9BBB1A22318C5E060B393D86D322AF42 /* Base */,
+				8F289B02A791F2616D28A6ACE1677186 /* Error */,
+				542AD8830FEFB273AD304FAEF6A123E0 /* Interceptor */,
+				A1CB478052EC3261D74EFA8F6D929446 /* Logger */,
+				D5EBE627643EDCB01EB293C99C69F7EF /* Models */,
 			);
 			name = Core;
 			path = AloyNetworking/Classes/Core;
@@ -279,21 +291,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		F7D9C7ADC47D974E1392E4ED2CAD2DFB /* Error */ = {
+		D5EBE627643EDCB01EB293C99C69F7EF /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				1D1E6978196B3C01EABD66906803B090 /* AloyNetworkingError.swift */,
+				F1E1ECBA334AE68FBC5BAA606ED85988 /* AloyNetworkingMedia.swift */,
+				F409A4A63F2A024FA455147F2C5506D1 /* AloyNetworkingRequest.swift */,
 			);
-			path = Error;
-			sourceTree = "<group>";
-		};
-		F8233D414993BAE52F868D545AC5583B /* Logger */ = {
-			isa = PBXGroup;
-			children = (
-				D67F0BA7595CD121E4AF4B3E7E870D58 /* FocusLogger.swift */,
-				4EDC3C5A11D9E577C726E95B6792FB93 /* FocusLoggerLevel.swift */,
-			);
-			path = Logger;
+			name = Models;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		FF0BBC507ECE45BBD2E9A056F868ACDC /* Extensions */ = {
@@ -340,7 +345,7 @@
 			buildConfigurationList = 9D0E7BC4EA1ECDDC4CD10698B72DF1D7 /* Build configuration list for PBXNativeTarget "AloyNetworking" */;
 			buildPhases = (
 				B3CAD11D0EA86F784A963C267E60D83C /* Headers */,
-				457306F492D50FCF34BA7AEAB23CA940 /* Sources */,
+				A1B7BF3A78E69DE87E734D3B42482D1B /* Sources */,
 				DF0CEBB3596BF522C1E34EA040976BB1 /* Frameworks */,
 				A41450D62A31B6F1B0F0D737B54F5068 /* Resources */,
 			);
@@ -445,28 +450,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		457306F492D50FCF34BA7AEAB23CA940 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D356DC750D8E3077B8A9DDB93243027B /* AloyNetworking-dummy.m in Sources */,
-				574DBCA58794A2EEDEBCF03255561119 /* Encodable+Dictionary.swift in Sources */,
-				05B2C5AFC5AECFDCFDD413EE5A9D71B1 /* AloyNetworking.swift in Sources */,
-				E84FC0D796F0214FCF1E3E7FF1B07FA2 /* AloyNetworkingError.swift in Sources */,
-				D23D4B318493736F14B847E21974FE18 /* AloyInterceptorProtocol.swift in Sources */,
-				1F5F9AA9CCCD1631A2911BE8976E5EEE /* FocusLogger.swift in Sources */,
-				FB09B918D53B50C8C86DA9378BF005D3 /* FocusLoggerLevel.swift in Sources */,
-				69544179FDFAFB3A30AAF94723ED5C7E /* AloyNetworkingMedia.swift in Sources */,
-				4288645AB2F4CB8CCEFC9C3DCDDF3A41 /* AloyNetworkingProtocol.swift in Sources */,
-				9A8737811D278BB66A550D3F048EBCB4 /* AloyNetworkingRequest.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		4C32920BF1F9E03FC8A186289D617F6C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				E9ACF480578E6E906F4DBC9ED643DB51 /* Pods-AloyNetworking_Example-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A1B7BF3A78E69DE87E734D3B42482D1B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7906780432319A9BFE83FC4B82CF7A30 /* AloyInterceptorProtocol.swift in Sources */,
+				3662D9F45D56E61696DDDD498EC497F6 /* AloyNetworking.swift in Sources */,
+				DC22EE1C9EEBC3E2F3C3505DB36C22F7 /* AloyNetworking-dummy.m in Sources */,
+				3789F2B0AA6E0CC1E1DAF9365AE24DB2 /* AloyNetworkingError.swift in Sources */,
+				C62D14B2FA13B9B67DCEC858FDA370FD /* AloyNetworkingMedia.swift in Sources */,
+				CD8BEA0A6BF41C1C528D1993EB773259 /* AloyNetworkingProtocol.swift in Sources */,
+				1914ED49EF392469D8A86BCEB0ABFC07 /* AloyNetworkingRequest.swift in Sources */,
+				C3106594ABAF7173E29747834D35C453 /* Encodable+Dictionary.swift in Sources */,
+				002D96D3D7199B0CC6B061A56D0192B0 /* FocusLogger.swift in Sources */,
+				60FFD68BE004108D656FE9988FCD9BC0 /* FocusLoggerLevel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -779,7 +784,8 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};

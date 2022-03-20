@@ -16,7 +16,8 @@
     "tag": "1.0.0"
   },
   "platforms": {
-    "ios": "12.0"
+    "ios": "12.0",
+    "watchos": "5.0"
   },
   "source_files": "AloyNetworking/Classes/**/*"
 }
