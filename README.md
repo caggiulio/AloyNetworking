@@ -17,9 +17,9 @@ AloyNetworking library bring together `URLSession`, `Codable`, `Combine` and `as
 
 ```swift
 private let webService: AloyNetworking = {
-    var webService = AloyNetworking(baseURL: baseURL, interceptor: CustomWebServiceInterceptor())
-    webService.logLevel = .debug
-    return webService
+  var webService = AloyNetworking(baseURL: baseURL, interceptor: CustomWebServiceInterceptor())
+  webService.logLevel = .debug
+  return webService
 }()
 
 let path = ("/path", [CustomURLQueryItems()])
@@ -46,7 +46,7 @@ Add the following dependency to your Package.swift:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/caggiulio/AloyNetworking.git", .upToNextMajor(from: "1.0.0"))
+  .package(url: "https://github.com/caggiulio/AloyNetworking.git", .upToNextMajor(from: "1.0.0"))
 ]
 ```
 
@@ -81,7 +81,7 @@ webService.send(request: request)
 ```swift
 // Canonical URLSessionDataTask -> Will be called a closure with results of type (Result<[Decodable], Error>) -> Void. The Decodable type is the model that you want to decode.
 webService.send(request) { (results) in
-    completion(results)
+  completion(results)
 }
 ```
 
@@ -99,9 +99,9 @@ The `adapt` method is used to inspects and adapts the specified `URLRequest` in 
 
 ```swift
 func adapt(_ urlRequest: URLRequest) -> URLRequest {
-    var request = urlRequest
-    request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-    return request
+  var request = urlRequest
+  request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+  return request
 }
 ```
 
@@ -111,29 +111,29 @@ This func must be used to execute code before retry a failed request. in Combine
 ```swift
 // Combine version
 func retry(_ request: URLRequest, for session: URLSession, dueTo error: Error?) -> AnyPublisher<RetryResult, Error> {
-    return Future { promise in
-        webService.sendRequest(request: request)
-            .sink { completion in
-                promise(.success(.doNotRetry))
-                } receiveValue: { results in
-                promise(.success(.retry))
-                }
-        }
-        .eraseToAnyPublisher()
+  return Future { promise in
+    webService.sendRequest(request: request)
+      .sink { completion in
+         promise(.success(.doNotRetry))
+       } receiveValue: { results in
+         promise(.success(.retry))
+       }
+    }
+    .eraseToAnyPublisher()
 }
 ```
 
 ```swift
 // Normal version
 func retry(_ request: URLRequest, for session: URLSession, dueTo error: Error?, completion: @escaping (RetryResult) -> Void) {
-    webService.sendRequest(request: request) { completionResult in
-        switch completionResult {
-        case .success(_):
-            completion(.retry)
-        case .failure(_):
-            completion(.doNotRetry)
-        }
+  webService.sendRequest(request: request) { completionResult in
+    switch completionResult {
+      case .success(_):
+        completion(.retry)
+      case .failure(_):
+        completion(.doNotRetry)
     }
+  }
 }
 ```
 
