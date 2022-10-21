@@ -48,22 +48,23 @@
 		09527B208822AF75DABCC5BC2B0C5242 /* Encodable+Dictionary.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Encodable+Dictionary.swift"; sourceTree = "<group>"; };
 		11CEFEAAC798459795F79F0FEB09DC75 /* Pods-AloyNetworking_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-AloyNetworking_Example-dummy.m"; sourceTree = "<group>"; };
 		1466AC895A6F3B2AF6971775BFD67178 /* Pods-AloyNetworking_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AloyNetworking_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		171636F2FE46A6C15EB7AD589316ABBD /* Readme.md */ = {isa = PBXFileReference; includeInIndex = 1; path = Readme.md; sourceTree = "<group>"; };
 		22D1783733D12C01E1453B4EED8DF60F /* Pods-AloyNetworking_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-AloyNetworking_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		2E8B27D09CC0A5A23764DCA8E28F7D33 /* Pods-AloyNetworking_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-AloyNetworking_Tests-Info.plist"; sourceTree = "<group>"; };
 		30C0438117C2DC4086921AD2CE212D18 /* Pods-AloyNetworking_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-AloyNetworking_Tests.modulemap"; sourceTree = "<group>"; };
 		34303C8080BF1A9EFA5F38B06B62A09C /* AloyNetworking-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AloyNetworking-umbrella.h"; sourceTree = "<group>"; };
 		393FB27E3B2E4F27A0A4458E5E122904 /* FocusLogger.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FocusLogger.swift; sourceTree = "<group>"; };
 		39B1944138A3012DCC13C13191CFADB3 /* Pods-AloyNetworking_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AloyNetworking_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		42D249E2898B495530EB13CE3A50787B /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
 		470425E0F9A1DC8D9A91DB374C6ED2F2 /* AloyNetworkingError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AloyNetworkingError.swift; sourceTree = "<group>"; };
 		4E198262993733D53F7FFAD00A9CB858 /* FocusLoggerLevel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FocusLoggerLevel.swift; sourceTree = "<group>"; };
-		5924190AFFEE42D87D1D657E2E5185B9 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		573D829A9D2C9E4218B05B7624318387 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
 		5D37FD19009643EBF4B90DBE9E2DCF74 /* Pods-AloyNetworking_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-AloyNetworking_Tests-umbrella.h"; sourceTree = "<group>"; };
 		62DB1FB077E342E31644D8FD48DECE87 /* AloyNetworking-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AloyNetworking-prefix.pch"; sourceTree = "<group>"; };
 		6527675F5613494CF0FC64C10CA7F2B4 /* AloyInterceptorProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AloyInterceptorProtocol.swift; sourceTree = "<group>"; };
 		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		76A0F070B7362B96071CB58446357A16 /* AloyNetworking.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AloyNetworking.swift; sourceTree = "<group>"; };
 		794552924CBBEAB1F2CB630A4809C64A /* Pods-AloyNetworking_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-AloyNetworking_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		81A7F64288EECCCE87EE9FF6E9F3454C /* AloyNetworking.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = AloyNetworking.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		860F9DABE71C5DB4E0772D0FE41855C8 /* Pods-AloyNetworking_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-AloyNetworking_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		875D47336C0AFCBCAE895D128049BCB8 /* Pods-AloyNetworking_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-AloyNetworking_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		92C03B5DAD7F67CA3FF8E766EEDA8074 /* AloyNetworking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AloyNetworking.debug.xcconfig; sourceTree = "<group>"; };
@@ -73,7 +74,6 @@
 		A62AF02D50C12FD25104CEC2C21A4FAF /* Pods-AloyNetworking_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AloyNetworking_Example-frameworks.sh"; sourceTree = "<group>"; };
 		A72740A3A2993418CA0B2A4BE92CFF81 /* AloyNetworking.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AloyNetworking.release.xcconfig; sourceTree = "<group>"; };
 		AD29A1FFDDEAC72B1290D87B7587525A /* Pods-AloyNetworking_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AloyNetworking_Example.release.xcconfig"; sourceTree = "<group>"; };
-		AEE071F7383BD921EB0A0F1129C70B53 /* AloyNetworking.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = AloyNetworking.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		B774809C631DCBC267FF938A7C0311E9 /* Pods-AloyNetworking_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-AloyNetworking_Example-umbrella.h"; sourceTree = "<group>"; };
 		B9EA2754063EE21388C42BFA96B02B7D /* Pods-AloyNetworking_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-AloyNetworking_Example.modulemap"; sourceTree = "<group>"; };
 		BC04B6240DBB76BFECA186D765BA066F /* AloyNetworking */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = AloyNetworking; path = AloyNetworking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -186,16 +186,6 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
-		A1521E09980FD3350BFFA52254917A4C /* Pod */ = {
-			isa = PBXGroup;
-			children = (
-				AEE071F7383BD921EB0A0F1129C70B53 /* AloyNetworking.podspec */,
-				5924190AFFEE42D87D1D657E2E5185B9 /* LICENSE */,
-				42D249E2898B495530EB13CE3A50787B /* README.md */,
-			);
-			name = Pod;
-			sourceTree = "<group>";
-		};
 		A1CB478052EC3261D74EFA8F6D929446 /* Logger */ = {
 			isa = PBXGroup;
 			children = (
@@ -265,7 +255,7 @@
 			children = (
 				BB77773B46D319016F078596CC74908F /* Core */,
 				FF0BBC507ECE45BBD2E9A056F868ACDC /* Extensions */,
-				A1521E09980FD3350BFFA52254917A4C /* Pod */,
+				F6A831EE92E988A8B01EB2B6D0F5B2C4 /* Pod */,
 				9326D99F0EA4AECBAD8C63C91AEEA88D /* Support Files */,
 			);
 			name = AloyNetworking;
@@ -299,6 +289,16 @@
 			);
 			name = Models;
 			path = Models;
+			sourceTree = "<group>";
+		};
+		F6A831EE92E988A8B01EB2B6D0F5B2C4 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				81A7F64288EECCCE87EE9FF6E9F3454C /* AloyNetworking.podspec */,
+				573D829A9D2C9E4218B05B7624318387 /* LICENSE */,
+				171636F2FE46A6C15EB7AD589316ABBD /* Readme.md */,
+			);
+			name = Pod;
 			sourceTree = "<group>";
 		};
 		FF0BBC507ECE45BBD2E9A056F868ACDC /* Extensions */ = {
@@ -402,8 +402,8 @@
 		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1240;
-				LastUpgradeCheck = 1240;
+				LastSwiftUpdateCheck = 1300;
+				LastUpgradeCheck = 1300;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -533,6 +533,37 @@
 			};
 			name = Debug;
 		};
+		204A498BACE3907275811903B41CE710 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 92C03B5DAD7F67CA3FF8E766EEDA8074 /* AloyNetworking.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/AloyNetworking/AloyNetworking-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/AloyNetworking/AloyNetworking-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/AloyNetworking/AloyNetworking.modulemap";
+				PRODUCT_MODULE_NAME = AloyNetworking;
+				PRODUCT_NAME = AloyNetworking;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 		25AD9454612BF454A1E3DC4CD4FA8C6D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -599,7 +630,7 @@
 			};
 			name = Debug;
 		};
-		360DD37121F04CBEB5E2DF5C74F02E5D /* Release */ = {
+		3F0541D6F8EE33D5DAA6FF3F84B49B2A /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A72740A3A2993418CA0B2A4BE92CFF81 /* AloyNetworking.release.xcconfig */;
 			buildSettings = {
@@ -615,7 +646,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/AloyNetworking/AloyNetworking-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/AloyNetworking/AloyNetworking-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/AloyNetworking/AloyNetworking.modulemap";
 				PRODUCT_MODULE_NAME = AloyNetworking;
@@ -791,37 +822,6 @@
 			};
 			name = Release;
 		};
-		FDF8C3515ED9FFCF9AF472779DB53741 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 92C03B5DAD7F67CA3FF8E766EEDA8074 /* AloyNetworking.debug.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/AloyNetworking/AloyNetworking-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/AloyNetworking/AloyNetworking-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/AloyNetworking/AloyNetworking.modulemap";
-				PRODUCT_MODULE_NAME = AloyNetworking;
-				PRODUCT_NAME = AloyNetworking;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -846,8 +846,8 @@
 		9D0E7BC4EA1ECDDC4CD10698B72DF1D7 /* Build configuration list for PBXNativeTarget "AloyNetworking" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				FDF8C3515ED9FFCF9AF472779DB53741 /* Debug */,
-				360DD37121F04CBEB5E2DF5C74F02E5D /* Release */,
+				204A498BACE3907275811903B41CE710 /* Debug */,
+				3F0541D6F8EE33D5DAA6FF3F84B49B2A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

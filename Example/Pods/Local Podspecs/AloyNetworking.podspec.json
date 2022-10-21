@@ -1,6 +1,6 @@
 {
   "name": "AloyNetworking",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "summary": "A short description of AloyNetworking.",
   "description": "TODO: Add long description of the pod here.",
   "homepage": "https://github.com/caggiulio/AloyNetworking",
@@ -13,11 +13,11 @@
   },
   "source": {
     "git": "https://github.com/caggiulio/AloyNetworking.git",
-    "tag": "1.0.0"
+    "tag": "1.0.1"
   },
   "platforms": {
-    "ios": "12.0",
-    "watchos": "5.0"
+    "ios": "14.0",
+    "watchos": "6.0"
   },
   "source_files": "AloyNetworking/Classes/**/*"
 }
