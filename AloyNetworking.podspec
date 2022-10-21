@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'AloyNetworking'
-  s.version          = '1.0.0'
+  s.version          = '1.0.1'
   s.summary          = 'A short description of AloyNetworking.'
 
 # This description is used to generate tags and improve search results.
@@ -27,7 +27,7 @@ TODO: Add long description of the pod here.
   s.author           = { 'caggiulio' => 'nunziogiuliocaggegi@gmail.com' }
   s.source           = { :git => 'https://github.com/caggiulio/AloyNetworking.git', :tag => s.version.to_s }
 
-  s.ios.deployment_target = '12.0'
+  s.ios.deployment_target = '14.0'
   s.watchos.deployment_target = '5.0'
 
   s.source_files = 'AloyNetworking/Classes/**/*'

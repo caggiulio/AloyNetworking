@@ -336,7 +336,7 @@ private extension AloyNetworking {
           return try await shouldRetry(request: request, error: error)
       }
     } catch {
-      throw AloyNetworkingError.other(error: error)
+      throw error
     }
   }
 
