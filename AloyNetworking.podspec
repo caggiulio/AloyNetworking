@@ -29,7 +29,7 @@ TODO: Add long description of the pod here.
   s.swift_version = '5.0'
 
   s.ios.deployment_target = '14.0'
-  s.watchos.deployment_target = '6.0'
+  #s.watchos.deployment_target = '6.0'
 
   s.source_files = 'AloyNetworking/Classes/**/*'
 end
