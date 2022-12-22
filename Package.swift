@@ -23,7 +23,7 @@ let package = Package(
     .target(
       name: "AloyNetworking",
       dependencies: [],
-      path: "Classes/"
+      path: "AloyNetworking/"
     ),
     .testTarget(
       name: "AloyNetworkingTests",
