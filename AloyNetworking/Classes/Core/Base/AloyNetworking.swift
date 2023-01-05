@@ -27,6 +27,7 @@ public class AloyNetworking: NSObject, AloyNetworkingProtocol {
 
   private let session: URLSession
   private let baseURL: URL
+  private let port: Int? = nil
 
   /// The interceptor is used to adapt `URL` request and retry mechanism
   private var interceptor: AloyInterceptorProtocol?
@@ -38,10 +39,6 @@ public class AloyNetworking: NSObject, AloyNetworkingProtocol {
   /// - Parameter baseURL: The host baseURL for this instance of `AloyNetworking`
   /// - Parameter interceptor: The interceptor is used to adapt `URL` request and retry mechanism
   public init(baseURL: String, interceptor: AloyInterceptorProtocol? = nil, cachePolicy: NSURLRequest.CachePolicy, port: Int? = nil) {
-    guard var urlComponents = URLComponents(string: baseURL) else {
-      fatalError("Base URL cannot be invalid!")
-    }
-    urlComponents.port = port
     guard let url = urlComponents.url else {
       fatalError("Base URL cannot be invalid!")
     }
@@ -228,6 +225,7 @@ private extension AloyNetworking {
     components.host = baseURL.host
     components.path = baseURL.path + path
     components.queryItems = queryItems
+    components.port = port
     guard let url = components.url else { return nil }
     return url
   }
