@@ -39,9 +39,7 @@ public class AloyNetworking: NSObject, AloyNetworkingProtocol {
   /// - Parameter baseURL: The host baseURL for this instance of `AloyNetworking`
   /// - Parameter interceptor: The interceptor is used to adapt `URL` request and retry mechanism
   public init(baseURL: String, interceptor: AloyInterceptorProtocol? = nil, cachePolicy: NSURLRequest.CachePolicy, port: Int? = nil) {
-    guard let url = urlComponents.url else {
-      fatalError("Base URL cannot be invalid!")
-    }
+    guard let url = URL(string: baseURL) else { fatalError("Base URL cannot be invalid!") }
     self.baseURL = url
     self.interceptor = interceptor
 
