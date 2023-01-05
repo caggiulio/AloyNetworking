@@ -322,6 +322,8 @@ private extension AloyNetworking {
       finalRequest = interceptor.adapt(finalRequest)
     }
     
+    logger.logRequest(finalRequest)
+    
     do {
       let (data, response) = try await session.data(for: finalRequest)
       guard let httpRespone = response as? HTTPURLResponse else {
