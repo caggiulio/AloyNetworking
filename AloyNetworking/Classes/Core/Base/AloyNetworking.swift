@@ -27,7 +27,7 @@ public class AloyNetworking: NSObject, AloyNetworkingProtocol {
 
   private let session: URLSession
   private let baseURL: URL
-  private let port: Int? = nil
+  private var port: Int? = nil
 
   /// The interceptor is used to adapt `URL` request and retry mechanism
   private var interceptor: AloyInterceptorProtocol?
