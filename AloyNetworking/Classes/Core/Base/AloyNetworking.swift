@@ -41,6 +41,7 @@ public class AloyNetworking: NSObject, AloyNetworkingProtocol {
   public init(baseURL: String, interceptor: AloyInterceptorProtocol? = nil, cachePolicy: NSURLRequest.CachePolicy, port: Int? = nil) {
     guard let url = URL(string: baseURL) else { fatalError("Base URL cannot be invalid!") }
     self.baseURL = url
+    self.port = port
     self.interceptor = interceptor
 
     let configuration = URLSessionConfiguration.default
