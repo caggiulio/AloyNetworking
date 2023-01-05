@@ -316,8 +316,14 @@ private extension AloyNetworking {
 private extension AloyNetworking {
   /// This func is the final step to make an HTTP call in async await version using the `data(for: URLRequest)`func.
   func send(request: URLRequest) async throws -> Data {
+    var finalRequest = request
+
+    if let interceptor = interceptor {
+      finalRequest = interceptor.adapt(finalRequest)
+    }
+    
     do {
-      let (data, response) = try await session.data(for: request)
+      let (data, response) = try await session.data(for: finalRequest)
       guard let httpRespone = response as? HTTPURLResponse else {
         throw AloyNetworkingError.invalidHTTPResponse
       }
