@@ -3,6 +3,10 @@ import PackageDescription
 
 let package = Package(
   name: "AloyNetworking",
+  platforms: [
+    .macOS(.v10_15),
+    .iOS(.v13),
+  ],
   products: [
     .library(name: "AloyNetworking", targets: ["AloyNetworking"]),
     .library(name: "AloyNetworkingNIO", targets: ["AloyNetworkingNIO"]),
@@ -20,6 +24,7 @@ let package = Package(
     .target(
       name: "AloyNetworkingNIO",
       dependencies: [
+        "AloyNetworking",
         .product(name: "AsyncHTTPClient", package: "async-http-client"),
         .product(name: "NIOFoundationCompat", package: "swift-nio"),
       ],
