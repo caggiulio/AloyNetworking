@@ -28,13 +28,11 @@ public class AloyNetworking: NSObject, AloyNetworkingProtocol {
 
   // MARK: - Business logic properties
 
-  private let session: URLSession
-  private let baseURL: URL
-  private var port: Int? = nil
+  private let baseURL: String
 
   /// The interceptor is used to adapt `URL` request and retry mechanism
   private var interceptor: AloyInterceptorProtocol?
-  
+
   /// The `HTTPTransport`
   private let transport: HTTPTransport
 
@@ -43,24 +41,21 @@ public class AloyNetworking: NSObject, AloyNetworkingProtocol {
 
   /// The init of a `AloyNetworking` instance.
   /// - Parameter baseURL: The host baseURL for this instance of `AloyNetworking`
+  /// - Parameter transport: The transport layer used to execute HTTP requests
   /// - Parameter interceptor: The interceptor is used to adapt `URL` request and retry mechanism
-  public init(baseURL: String, transport: HTTPTransport, interceptor: AloyInterceptorProtocol? = nil, cachePolicy: NSURLRequest.CachePolicy, port: Int? = nil) {
-    guard let url = URL(string: baseURL) else { fatalError("Base URL cannot be invalid!") }
-    self.baseURL = url
-    self.port = port
+  public init(baseURL: String, transport: HTTPTransport, interceptor: AloyInterceptorProtocol? = nil) {
+    self.baseURL = baseURL
     self.transport = transport
     self.interceptor = interceptor
-
-    let configuration = URLSessionConfiguration.default
-    configuration.requestCachePolicy = cachePolicy
-    session = .init(configuration: configuration)
   }
 
   // MARK: - iOS > 15 Protocols
 
   @available(macOS 12.0, iOS 15.0, *)
   public func send<SuccessResponse>(request: AloyNetworkingRequest) async throws -> SuccessResponse where SuccessResponse: Decodable {
-    let adaptedRequest = interceptor?.adapt(request) ?? request
+    var adaptedRequest = interceptor?.adapt(request) ?? request
+    adaptedRequest.path = (url: baseURL + adaptedRequest.path.url, query: adaptedRequest.path.query)
+    logger.logRequest(adaptedRequest)
     let (data, statusCode) = try await transport.execute(adaptedRequest)
     logger.logResponse(statusCode: statusCode, data: data, error: nil)
 
@@ -69,7 +64,8 @@ public class AloyNetworking: NSObject, AloyNetworkingProtocol {
 
   @available(macOS 12.0, iOS 15.0, *)
   public func send<SuccessResponse>(request: AloyNetworkingRequest, medias: [AloyNetworkingMedia], boundary: String) async throws -> SuccessResponse where SuccessResponse: Decodable {
-    let adaptedRequest = interceptor?.adapt(request) ?? request
+    var adaptedRequest = interceptor?.adapt(request) ?? request
+    adaptedRequest.path = (url: baseURL + adaptedRequest.path.url, query: adaptedRequest.path.query)
     let multipartRequest = buildMultipartRequest(from: adaptedRequest, medias: medias, boundary: boundary)
     let (data, statusCode) = try await transport.execute(multipartRequest)
     logger.logResponse(statusCode: statusCode, data: data, error: nil)
