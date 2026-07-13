@@ -329,7 +329,7 @@ private extension AloyNetworking {
   func send(request: URLRequest, originalRequest: AloyNetworkingRequest) async throws -> Data {
     let finalRequest = request
 
-    logger.logRequest(finalRequest)
+    logger.logRequest(originalRequest)
 
     do {
       let (data, response) = try await session.data(for: finalRequest)
@@ -340,7 +340,7 @@ private extension AloyNetworking {
       let statusCode = httpRespone.statusCode
       switch statusCode {
         case 200 ... 299:
-          logger.logResponse(response, data: data)
+          logger.logResponse(statusCode: statusCode, data: data, error: nil)
           return data
 
         default:
@@ -349,7 +349,7 @@ private extension AloyNetworking {
             data: data
           )
 
-          logger.logResponse(response, data: data, error: error)
+          logger.logResponse(statusCode: statusCode, data: data, error: error)
 
           return try await shouldRetry(originalRequest: originalRequest, error: error)
       }
@@ -384,7 +384,6 @@ private extension AloyNetworking {
   /// This func is the final step to make an HTTP call in Combine version using the `dataTaskPublisher`func.
   func send(request: URLRequest, originalRequest: AloyNetworkingRequest) -> AnyPublisher<Data, Error> {
     func publisher(_ output: URLSession.DataTaskPublisher.Output) -> AnyPublisher<Data, Error> {
-      let response = output.response
       let data = output.data
 
       guard let httpResponse = output.response as? HTTPURLResponse else {
@@ -395,7 +394,7 @@ private extension AloyNetworking {
       let statusCode = httpResponse.statusCode
       switch statusCode {
         case 200 ... 299:
-          logger.logResponse(response, data: data)
+          logger.logResponse(statusCode: statusCode, data: data, error: nil)
           return Result.success(data)
             .publisher
             .eraseToAnyPublisher()
@@ -405,13 +404,13 @@ private extension AloyNetworking {
             data: data
           )
 
-          logger.logResponse(response, data: data, error: error)
+          logger.logResponse(statusCode: statusCode, data: data, error: error)
 
           return Fail(error: error).eraseToAnyPublisher()
       }
     }
 
-    logger.logRequest(request)
+    logger.logRequest(originalRequest)
 
     return session.dataTaskPublisher(for: request)
       .mapError { $0 }
@@ -428,13 +427,12 @@ private extension AloyNetworking {
   func send(request: URLRequest, originalRequest: AloyNetworkingRequest, completion: ((Result<Data, Error>) -> Void)?) {
     let finalRequest = request
 
-    logger.logRequest(finalRequest)
+    logger.logRequest(originalRequest)
 
     let task = session.dataTask(with: finalRequest) { data, response, error in
-      self.logger.logResponse(response, data: data, error: error)
-
       if let httpResponse = response as? HTTPURLResponse {
         let statusCode = httpResponse.statusCode
+        self.logger.logResponse(statusCode: statusCode, data: data, error: error)
 
         switch statusCode {
           case 200 ... 299:
@@ -447,6 +445,7 @@ private extension AloyNetworking {
             completion?(.failure(AloyNetworkingError.underlying(statusCode: statusCode, data: data)))
         }
       } else {
+        self.logger.logResponse(statusCode: 0, data: data, error: error)
         completion?(.failure(AloyNetworkingError.invalidHTTPResponse))
       }
     }
