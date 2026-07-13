@@ -55,6 +55,9 @@ public class AloyNetworking: NSObject, AloyNetworkingProtocol {
   public func send<SuccessResponse>(request: AloyNetworkingRequest) async throws -> SuccessResponse where SuccessResponse: Decodable {
     var adaptedRequest = interceptor?.adapt(request) ?? request
     adaptedRequest.path = (url: baseURL + adaptedRequest.path.url, query: adaptedRequest.path.query)
+    if let scheme = adaptedRequest.scheme {
+      adaptedRequest.path = (url: applyScheme(scheme, to: adaptedRequest.path.url), query: adaptedRequest.path.query)
+    }
     logger.logRequest(adaptedRequest)
     let (data, statusCode) = try await transport.execute(adaptedRequest)
     logger.logResponse(statusCode: statusCode, data: data, error: nil)
@@ -66,6 +69,9 @@ public class AloyNetworking: NSObject, AloyNetworkingProtocol {
   public func send<SuccessResponse>(request: AloyNetworkingRequest, medias: [AloyNetworkingMedia], boundary: String) async throws -> SuccessResponse where SuccessResponse: Decodable {
     var adaptedRequest = interceptor?.adapt(request) ?? request
     adaptedRequest.path = (url: baseURL + adaptedRequest.path.url, query: adaptedRequest.path.query)
+    if let scheme = adaptedRequest.scheme {
+      adaptedRequest.path = (url: applyScheme(scheme, to: adaptedRequest.path.url), query: adaptedRequest.path.query)
+    }
     let multipartRequest = buildMultipartRequest(from: adaptedRequest, medias: medias, boundary: boundary)
     let (data, statusCode) = try await transport.execute(multipartRequest)
     logger.logResponse(statusCode: statusCode, data: data, error: nil)
@@ -77,6 +83,12 @@ public class AloyNetworking: NSObject, AloyNetworkingProtocol {
 // MARK: - Private methods
 
 private extension AloyNetworking {
+  func applyScheme(_ scheme: String, to urlString: String) -> String {
+    guard var components = URLComponents(string: urlString) else { return urlString }
+    components.scheme = scheme
+    return components.string ?? urlString
+  }
+
   func buildMultipartRequest(from request: AloyNetworkingRequest, medias: [AloyNetworkingMedia], boundary: String) -> AloyNetworkingRequest {
     let body = makeMultipartBody(request: request, medias: medias, boundary: boundary)
     // Wrap raw multipart data as a custom body via a RawDataEncodable shim

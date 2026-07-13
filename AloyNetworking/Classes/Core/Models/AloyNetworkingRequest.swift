@@ -31,13 +31,16 @@ public struct AloyNetworkingRequest {
   public var path: Path
   public var header: [String: Any]?
   public var body: Body?
+  /// Overrides the scheme of the final URL (e.g. "http", "https"). Replaces whatever scheme is in baseURL.
+  public var scheme: String?
 
   // MARK: - Object lifecycle
 
-  public init(method: HTTPMethod, path: Path, header: [String: Any]? = nil, body: Body? = nil) {
+  public init(method: HTTPMethod, path: Path, header: [String: Any]? = nil, body: Body? = nil, scheme: String? = nil) {
     self.method = method
     self.path = path
     self.header = header
     self.body = body
+    self.scheme = scheme
   }
 }
