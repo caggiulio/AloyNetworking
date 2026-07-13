@@ -60,8 +60,9 @@ public class AloyNetworking: NSObject, AloyNetworkingProtocol {
       throw AloyNetworkingError.invalidUrl
     }
 
-    let finalRequest = makeRequest(url: finalUrl, request: request)
-    let data = try await send(request: finalRequest)
+    let adaptedRequest = interceptor?.adapt(request) ?? request
+    let finalRequest = makeRequest(url: finalUrl, request: adaptedRequest)
+    let data = try await send(request: finalRequest, originalRequest: adaptedRequest)
 
     return try JSONDecoder().decode(SuccessResponse.self, from: data)
   }
@@ -72,9 +73,10 @@ public class AloyNetworking: NSObject, AloyNetworkingProtocol {
       throw AloyNetworkingError.invalidUrl
     }
 
-    let finalRequest = makeMultipartURLRequest(url: finalUrl, request: request, medias: medias, boundary: boundary)
+    let adaptedRequest = interceptor?.adapt(request) ?? request
+    let finalRequest = makeMultipartURLRequest(url: finalUrl, request: adaptedRequest, medias: medias, boundary: boundary)
 
-    let data = try await send(request: finalRequest)
+    let data = try await send(request: finalRequest, originalRequest: adaptedRequest)
     return try JSONDecoder().decode(SuccessResponse.self, from: data)
   }
 
@@ -101,9 +103,10 @@ public class AloyNetworking: NSObject, AloyNetworkingProtocol {
         .eraseToAnyPublisher()
     }
 
-    let finalRequest = makeRequest(url: finalUrl, request: request)
+    let adaptedRequest = interceptor?.adapt(request) ?? request
+    let finalRequest = makeRequest(url: finalUrl, request: adaptedRequest)
 
-    return send(request: finalRequest)
+    return send(request: finalRequest, originalRequest: adaptedRequest)
       .decode(type: SuccessResponse.self, decoder: decoder)
       .eraseToAnyPublisher()
   }
@@ -133,9 +136,10 @@ public class AloyNetworking: NSObject, AloyNetworkingProtocol {
         .eraseToAnyPublisher()
     }
 
-    let finalRequest = makeMultipartURLRequest(url: finalUrl, request: request, medias: medias, boundary: boundary)
+    let adaptedRequest = interceptor?.adapt(request) ?? request
+    let finalRequest = makeMultipartURLRequest(url: finalUrl, request: adaptedRequest, medias: medias, boundary: boundary)
 
-    return send(request: finalRequest)
+    return send(request: finalRequest, originalRequest: adaptedRequest)
       .decode(type: SuccessResponse.self, decoder: decoder)
       .eraseToAnyPublisher()
   }
@@ -162,8 +166,9 @@ public class AloyNetworking: NSObject, AloyNetworkingProtocol {
       return
     }
 
-    let request = makeRequest(url: finalUrl, request: request)
-    send(request: request, completion: { result in
+    let adaptedRequest = interceptor?.adapt(request) ?? request
+    let request = makeRequest(url: finalUrl, request: adaptedRequest)
+    send(request: request, originalRequest: adaptedRequest, completion: { result in
       switch result {
         case let .success(result):
           do {
@@ -201,8 +206,9 @@ public class AloyNetworking: NSObject, AloyNetworkingProtocol {
       return
     }
 
-    let request = makeMultipartURLRequest(url: finalUrl, request: request, medias: medias, boundary: boundary)
-    send(request: request, completion: { result in
+    let adaptedRequest = interceptor?.adapt(request) ?? request
+    let request = makeMultipartURLRequest(url: finalUrl, request: adaptedRequest, medias: medias, boundary: boundary)
+    send(request: request, originalRequest: adaptedRequest, completion: { result in
       switch result {
         case let .success(result):
           do {
@@ -320,15 +326,11 @@ private extension AloyNetworking {
 @available(macOS 12.0, iOS 15.0, *)
 private extension AloyNetworking {
   /// This func is the final step to make an HTTP call in async await version using the `data(for: URLRequest)`func.
-  func send(request: URLRequest) async throws -> Data {
-    var finalRequest = request
+  func send(request: URLRequest, originalRequest: AloyNetworkingRequest) async throws -> Data {
+    let finalRequest = request
 
-    if let interceptor = interceptor {
-      finalRequest = interceptor.adapt(finalRequest)
-    }
-    
     logger.logRequest(finalRequest)
-    
+
     do {
       let (data, response) = try await session.data(for: finalRequest)
       guard let httpRespone = response as? HTTPURLResponse else {
@@ -349,7 +351,7 @@ private extension AloyNetworking {
 
           logger.logResponse(response, data: data, error: error)
 
-          return try await shouldRetry(request: request, error: error)
+          return try await shouldRetry(originalRequest: originalRequest, error: error)
       }
     } catch {
       throw error
@@ -357,13 +359,17 @@ private extension AloyNetworking {
   }
 
   /// Func used to understand if the system should retry the request in async await version
-  func shouldRetry(request: URLRequest, error: Error) async throws -> Data {
+  func shouldRetry(originalRequest: AloyNetworkingRequest, error: Error) async throws -> Data {
     guard let interceptor = interceptor else { throw error }
 
-    let retryResult = try await interceptor.retry(request, for: session, dueTo: error)
+    let retryResult = try await interceptor.retry(originalRequest, dueTo: error)
     switch retryResult {
       case .retry:
-        return try await send(request: request)
+        guard let finalUrl = makeUrl(path: originalRequest.path.url, queryItems: originalRequest.path.query) else {
+          throw AloyNetworkingError.invalidUrl
+        }
+        let urlRequest = makeRequest(url: finalUrl, request: originalRequest)
+        return try await send(request: urlRequest, originalRequest: originalRequest)
       case .doNotRetry:
         throw error
     }
@@ -376,7 +382,7 @@ private extension AloyNetworking {
 @available(macOS 10.15, iOS 13.0, *)
 private extension AloyNetworking {
   /// This func is the final step to make an HTTP call in Combine version using the `dataTaskPublisher`func.
-  func send(request: URLRequest) -> AnyPublisher<Data, Error> {
+  func send(request: URLRequest, originalRequest: AloyNetworkingRequest) -> AnyPublisher<Data, Error> {
     func publisher(_ output: URLSession.DataTaskPublisher.Output) -> AnyPublisher<Data, Error> {
       let response = output.response
       let data = output.data
@@ -401,39 +407,15 @@ private extension AloyNetworking {
 
           logger.logResponse(response, data: data, error: error)
 
-          return shouldRetry(
-            request: request,
-            error: error
-          )
+          return Fail(error: error).eraseToAnyPublisher()
       }
     }
 
-    var finalRequest = request
-    if let interceptor = interceptor {
-      finalRequest = interceptor.adapt(finalRequest)
-    }
+    logger.logRequest(request)
 
-    logger.logRequest(finalRequest)
-
-    return session.dataTaskPublisher(for: finalRequest)
+    return session.dataTaskPublisher(for: request)
       .mapError { $0 }
       .flatMap { publisher($0) }
-      .eraseToAnyPublisher()
-  }
-
-  /// Func used to understand if the system should retry the request in Combine version
-  func shouldRetry(request: URLRequest, error: Error) -> AnyPublisher<Data, Error> {
-    guard let interceptor = interceptor else { return Fail(error: error).eraseToAnyPublisher() }
-
-    return interceptor.retry(request, for: session, dueTo: error)
-      .flatMap { retryResult -> AnyPublisher<Data, Error> in
-        switch retryResult {
-          case .retry:
-            return self.send(request: request)
-          case .doNotRetry:
-            return Fail(error: error).eraseToAnyPublisher()
-        }
-      }
       .eraseToAnyPublisher()
   }
 }
@@ -443,12 +425,8 @@ private extension AloyNetworking {
 
 private extension AloyNetworking {
   /// This func is the final step to make an HTTP call in non Comibne version using the `dataTask`func.
-  func send(request: URLRequest, completion: ((Result<Data, Error>) -> Void)?) {
-    var finalRequest = request
-
-    if let interceptor = interceptor {
-      finalRequest = interceptor.adapt(finalRequest)
-    }
+  func send(request: URLRequest, originalRequest: AloyNetworkingRequest, completion: ((Result<Data, Error>) -> Void)?) {
+    let finalRequest = request
 
     logger.logRequest(finalRequest)
 
@@ -466,33 +444,12 @@ private extension AloyNetworking {
               completion?(.failure(AloyNetworkingError.underlying(response: httpResponse, data: nil)))
             }
           default:
-            self.shouldRetry(request: request, error: AloyNetworkingError.underlying(response: response, data: data)) { completionResult in
-              completion?(completionResult)
-            }
+            completion?(.failure(AloyNetworkingError.underlying(response: response, data: data)))
         }
       } else {
         completion?(.failure(AloyNetworkingError.invalidHTTPResponse))
       }
     }
     task.resume()
-  }
-
-  /// Func used to understand if the system should retry the request
-  func shouldRetry(request: URLRequest, error: Error, completion: ((Result<Data, Error>) -> Void)?) {
-    guard let interceptor = interceptor else {
-      completion?(.failure(AloyNetworkingError.other(error: error)))
-      return
-    }
-
-    interceptor.retry(request, for: session, dueTo: error) { retryResult in
-      switch retryResult {
-        case .retry:
-          self.send(request: request) { completionResult in
-            completion?(completionResult)
-          }
-        case .doNotRetry:
-          completion?(.failure(AloyNetworkingError.other(error: error)))
-      }
-    }
   }
 }
