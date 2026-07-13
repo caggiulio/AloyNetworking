@@ -11,8 +11,7 @@ import Foundation
 public enum AloyNetworkingError: Error {
   case invalidUrl
   case invalidHTTPResponse
-  case sessionFailed(error: URLError)
   case decodingFailed(error: Error)
   case other(error: Error)
-  case underlying(response: URLResponse?, data: Data?)
+  case underlying(statusCode: Int, data: Data?)
 }

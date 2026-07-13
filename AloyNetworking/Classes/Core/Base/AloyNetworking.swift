@@ -345,7 +345,7 @@ private extension AloyNetworking {
 
         default:
           let error = AloyNetworkingError.underlying(
-            response: response,
+            statusCode: statusCode,
             data: data
           )
 
@@ -401,7 +401,7 @@ private extension AloyNetworking {
             .eraseToAnyPublisher()
         default:
           let error = AloyNetworkingError.underlying(
-            response: response,
+            statusCode: statusCode,
             data: data
           )
 
@@ -441,10 +441,10 @@ private extension AloyNetworking {
             if let data = data {
               completion?(.success(data))
             } else {
-              completion?(.failure(AloyNetworkingError.underlying(response: httpResponse, data: nil)))
+              completion?(.failure(AloyNetworkingError.underlying(statusCode: statusCode, data: nil)))
             }
           default:
-            completion?(.failure(AloyNetworkingError.underlying(response: response, data: data)))
+            completion?(.failure(AloyNetworkingError.underlying(statusCode: statusCode, data: data)))
         }
       } else {
         completion?(.failure(AloyNetworkingError.invalidHTTPResponse))
