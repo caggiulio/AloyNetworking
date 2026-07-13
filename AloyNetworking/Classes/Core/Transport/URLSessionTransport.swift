@@ -1,6 +1,7 @@
 #if canImport(UIKit) || os(macOS)
 import Foundation
 
+@available(macOS 12.0, iOS 15.0, *)
 public struct URLSessionTransport: HTTPTransport {
     public init() {}
 

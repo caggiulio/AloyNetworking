@@ -5,8 +5,11 @@
 //  Copyright © 2022 Nunzio Giulio Caggegi All rights reserved.
 //
 
-import Combine
 import Foundation
+
+#if canImport(Combine)
+import Combine
+#endif
 
 // MARK: - AloyNetworking
 
@@ -51,7 +54,7 @@ public class AloyNetworking: NSObject, AloyNetworkingProtocol {
 
   // MARK: - iOS > 15 Protocols
 
-  @available(iOS 15.0, *)
+  @available(macOS 12.0, iOS 15.0, *)
   public func send<SuccessResponse>(request: AloyNetworkingRequest) async throws -> SuccessResponse where SuccessResponse: Decodable {
     guard let finalUrl = makeUrl(path: request.path.url, queryItems: request.path.query) else {
       throw AloyNetworkingError.invalidUrl
@@ -63,7 +66,7 @@ public class AloyNetworking: NSObject, AloyNetworkingProtocol {
     return try JSONDecoder().decode(SuccessResponse.self, from: data)
   }
 
-  @available(iOS 15.0, *)
+  @available(macOS 12.0, iOS 15.0, *)
   public func send<SuccessResponse>(request: AloyNetworkingRequest, medias: [AloyNetworkingMedia], boundary: String) async throws -> SuccessResponse where SuccessResponse: Decodable {
     guard let finalUrl = makeUrl(path: request.path.url, queryItems: request.path.query) else {
       throw AloyNetworkingError.invalidUrl
@@ -75,12 +78,13 @@ public class AloyNetworking: NSObject, AloyNetworkingProtocol {
     return try JSONDecoder().decode(SuccessResponse.self, from: data)
   }
 
+#if canImport(Combine)
   // MARK: - iOS > 13 Protocols
 
   /// This is the func to use to make an HTTP call in Combine version.
   /// - Parameter request: The `AloyNetworkingRequest` object with HTTP information request.
   /// - Returns  AnyPublisher<SuccessResponse, Error> where `SuccessResponse` is a Decodable to decode in HTTP response.
-  @available(iOS 13.0, *)
+  @available(macOS 10.15, iOS 13.0, *)
   public func send<SuccessResponse: Decodable>(request: AloyNetworkingRequest) -> AnyPublisher<SuccessResponse, Error> {
     send(request: request, decoder: JSONDecoder())
   }
@@ -90,7 +94,7 @@ public class AloyNetworking: NSObject, AloyNetworkingProtocol {
   ///   - request: The `AloyNetworkingRequest` object with HTTP information request.
   ///   - decoder: The `JSONDecoder` used to decode the response.
   /// - Returns: AnyPublisher<SuccessResponse, Error> where `SuccessResponse` is a Decodable to decode in HTTP response.
-  @available(iOS 13.0, *)
+  @available(macOS 10.15, iOS 13.0, *)
   public func send<SuccessResponse>(request: AloyNetworkingRequest, decoder: JSONDecoder) -> AnyPublisher<SuccessResponse, Error> where SuccessResponse: Decodable {
     guard let finalUrl = makeUrl(path: request.path.url, queryItems: request.path.query) else {
       return Fail(error: AloyNetworkingError.invalidUrl)
@@ -110,7 +114,7 @@ public class AloyNetworking: NSObject, AloyNetworkingProtocol {
   ///   - medias: Array of `AloyNetworkingMedia` object with media informations to upload.
   ///   - boundary: The boundary of HTTP multipart request.
   /// - Returns: AnyPublisher<SuccessResponse, Error> where `SuccessResponse` is a Decodable to decode in HTTP response.
-  @available(iOS 13.0, *)
+  @available(macOS 10.15, iOS 13.0, *)
   public func send<SuccessResponse: Decodable>(request: AloyNetworkingRequest, medias: [AloyNetworkingMedia], boundary: String) -> AnyPublisher<SuccessResponse, Error> {
     send(request: request, medias: medias, boundary: boundary, decoder: JSONDecoder())
   }
@@ -122,7 +126,7 @@ public class AloyNetworking: NSObject, AloyNetworkingProtocol {
   ///   - boundary: The boundary of HTTP multipart request.
   ///   - decoder: The `JSONDecoder` used to decode the response.
   /// - Returns: AnyPublisher<SuccessResponse, Error> where `SuccessResponse` is a Decodable to decode in HTTP response.
-  @available(iOS 13.0, *)
+  @available(macOS 10.15, iOS 13.0, *)
   public func send<SuccessResponse>(request: AloyNetworkingRequest, medias: [AloyNetworkingMedia], boundary: String, decoder: JSONDecoder) -> AnyPublisher<SuccessResponse, Error> where SuccessResponse: Decodable {
     guard let finalUrl = makeUrl(path: request.path.url, queryItems: request.path.query) else {
       return Fail(error: AloyNetworkingError.invalidUrl)
@@ -135,6 +139,7 @@ public class AloyNetworking: NSObject, AloyNetworkingProtocol {
       .decode(type: SuccessResponse.self, decoder: decoder)
       .eraseToAnyPublisher()
   }
+#endif
 
   // MARK: - iOS < 13 Protocols
 
@@ -312,7 +317,7 @@ private extension AloyNetworking {
 
 // MARK: - Functions used with async await
 
-@available(iOS 15.0, *)
+@available(macOS 12.0, iOS 15.0, *)
 private extension AloyNetworking {
   /// This func is the final step to make an HTTP call in async await version using the `data(for: URLRequest)`func.
   func send(request: URLRequest) async throws -> Data {
@@ -367,7 +372,8 @@ private extension AloyNetworking {
 
 // MARK: - Functions used with combine
 
-@available(iOS 13.0, *)
+#if canImport(Combine)
+@available(macOS 10.15, iOS 13.0, *)
 private extension AloyNetworking {
   /// This func is the final step to make an HTTP call in Combine version using the `dataTaskPublisher`func.
   func send(request: URLRequest) -> AnyPublisher<Data, Error> {
@@ -431,6 +437,7 @@ private extension AloyNetworking {
       .eraseToAnyPublisher()
   }
 }
+#endif
 
 // MARK: - Functions used without combine
 

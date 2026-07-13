@@ -4,6 +4,7 @@ import Foundation
 import NIOFoundationCompat
 import NIOHTTP1
 
+@available(macOS 10.15, iOS 13.0, *)
 public struct NIOTransport: HTTPTransport {
     public init() {}
 
