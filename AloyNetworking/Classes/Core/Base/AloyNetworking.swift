@@ -94,12 +94,12 @@ public class AloyNetworking: NSObject, AloyNetworkingProtocol {
 // MARK: - Private methods
 
 private extension AloyNetworking {
-  func applyScheme(_ scheme: String, to urlString: String) -> String {
+  func applyScheme(_ scheme: AloyNetworkingRequest.Scheme, to urlString: String) -> String {
     guard urlString.contains("://") else {
-      return scheme + "://" + urlString
+      return scheme.rawValue + "://" + urlString
     }
     guard var components = URLComponents(string: urlString) else { return urlString }
-    components.scheme = scheme
+    components.scheme = scheme.rawValue
     return components.string ?? urlString
   }
 

@@ -25,6 +25,12 @@ public struct AloyNetworkingRequest {
     case delete = "DELETE"
   }
 
+  /// URL scheme for this request.
+  public enum Scheme: String {
+    case http
+    case https
+  }
+
   /// How the body payload is serialised onto the wire.
   public enum Encoding {
     /// Serialises as `application/json`.
@@ -41,12 +47,12 @@ public struct AloyNetworkingRequest {
   public var header: [String: Any]?
   /// Optional request body.
   public var body: Body?
-  /// Overrides the scheme of the final URL (e.g. "http", "https"). Replaces whatever scheme is in `baseURL`.
-  public var scheme: String?
+  /// Overrides the URL scheme. Replaces whatever scheme is in `baseURL`.
+  public var scheme: Scheme?
 
   // MARK: - Object lifecycle
 
-  public init(method: HTTPMethod, path: Path, header: [String: Any]? = nil, body: Body? = nil, scheme: String? = nil) {
+  public init(method: HTTPMethod, path: Path, header: [String: Any]? = nil, body: Body? = nil, scheme: Scheme? = nil) {
     self.method = method
     self.path = path
     self.header = header
