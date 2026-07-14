@@ -51,6 +51,10 @@ public class AloyNetworking: NSObject, AloyNetworkingProtocol {
 
   // MARK: - iOS > 15 Protocols
 
+  /// Sends a standard HTTP request and decodes the response.
+  /// - Parameter request: The request descriptor.
+  /// - Returns: Decoded `SuccessResponse` on a 2xx status.
+  /// - Throws: `AloyNetworkingError` on network, HTTP, or decoding failure.
   @available(macOS 12.0, iOS 15.0, *)
   public func send<SuccessResponse>(request: AloyNetworkingRequest) async throws -> SuccessResponse where SuccessResponse: Decodable {
     var adaptedRequest = interceptor?.adapt(request) ?? request
@@ -65,6 +69,13 @@ public class AloyNetworking: NSObject, AloyNetworkingProtocol {
     return try await handleResponse(data: data, statusCode: statusCode, originalRequest: adaptedRequest)
   }
 
+  /// Sends a multipart/form-data request and decodes the response.
+  /// - Parameters:
+  ///   - request: The request descriptor (body fields are embedded as form parts).
+  ///   - medias: File attachments to include in the multipart body.
+  ///   - boundary: Unique boundary string separating multipart parts.
+  /// - Returns: Decoded `SuccessResponse` on a 2xx status.
+  /// - Throws: `AloyNetworkingError` on network, HTTP, or decoding failure.
   @available(macOS 12.0, iOS 15.0, *)
   public func send<SuccessResponse>(request: AloyNetworkingRequest, medias: [AloyNetworkingMedia], boundary: String) async throws -> SuccessResponse where SuccessResponse: Decodable {
     var adaptedRequest = interceptor?.adapt(request) ?? request
@@ -84,6 +95,9 @@ public class AloyNetworking: NSObject, AloyNetworkingProtocol {
 
 private extension AloyNetworking {
   func applyScheme(_ scheme: String, to urlString: String) -> String {
+    guard urlString.contains("://") else {
+      return scheme + "://" + urlString
+    }
     guard var components = URLComponents(string: urlString) else { return urlString }
     components.scheme = scheme
     return components.string ?? urlString

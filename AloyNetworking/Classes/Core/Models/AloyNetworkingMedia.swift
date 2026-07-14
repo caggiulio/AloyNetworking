@@ -7,11 +7,15 @@
 
 import Foundation
 
-/// Struct used to make HTTP multipart call.
+/// A single file attachment for a multipart/form-data upload.
 public struct AloyNetworkingMedia {
+  /// Raw file bytes.
   public let data: Data
+  /// Form field name (`Content-Disposition: form-data; name="<key>"`).
   public let key: String
+  /// Suggested filename sent in the `Content-Disposition` header.
   public let filename: String
+  /// MIME type used in the `Content-Type` part header (e.g. `"image/jpeg"`).
   public let mimeType: String
 
   public init(data: Data, key: String, filename: String, mimeType: String) {

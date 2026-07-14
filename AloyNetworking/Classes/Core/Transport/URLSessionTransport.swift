@@ -1,6 +1,8 @@
 #if canImport(UIKit) || os(macOS)
 import Foundation
 
+/// Default `HTTPTransport` backed by `URLSession.shared`.
+/// Handles JSON and URL-encoded body encoding, and maps `HTTPURLResponse` to a status code.
 @available(macOS 12.0, iOS 15.0, *)
 public struct URLSessionTransport: HTTPTransport {
     public init() {}

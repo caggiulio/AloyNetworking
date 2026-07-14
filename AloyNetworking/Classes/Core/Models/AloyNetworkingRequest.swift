@@ -7,13 +7,16 @@
 
 import Foundation
 
-/// Public struct used to make an HTTP request. The `Body`struct contains the Encodable object to encode in the reqeust.
+/// Describes a single HTTP request passed to `AloyNetworking.send(request:)`.
 public struct AloyNetworkingRequest {
   // MARK: - Public properties
 
+  /// Tuple of the raw URL string and optional query parameters.
   public typealias Path = (url: String, query: [URLQueryItem]?)
+  /// Tuple of an `Encodable` body payload and its wire encoding strategy.
   public typealias Body = (data: Encodable, encoding: Encoding)
 
+  /// HTTP verb.
   public enum HTTPMethod: String {
     case get = "GET"
     case post = "POST"
@@ -22,16 +25,23 @@ public struct AloyNetworkingRequest {
     case delete = "DELETE"
   }
 
+  /// How the body payload is serialised onto the wire.
   public enum Encoding {
+    /// Serialises as `application/json`.
     case json
+    /// Serialises as `application/x-www-form-urlencoded`.
     case urlEncoded
   }
 
+  /// HTTP method for this request.
   public var method: HTTPMethod
+  /// Destination URL and optional query items.
   public var path: Path
+  /// HTTP headers. String values are forwarded as-is; non-String values are ignored.
   public var header: [String: Any]?
+  /// Optional request body.
   public var body: Body?
-  /// Overrides the scheme of the final URL (e.g. "http", "https"). Replaces whatever scheme is in baseURL.
+  /// Overrides the scheme of the final URL (e.g. "http", "https"). Replaces whatever scheme is in `baseURL`.
   public var scheme: String?
 
   // MARK: - Object lifecycle
